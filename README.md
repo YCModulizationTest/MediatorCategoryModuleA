@@ -1,0 +1,2 @@
+# MediatorCategoryModuleA
+ModuleA的Mediator分类
