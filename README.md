@@ -1,2 +1,1 @@
-# MediatorCategoryModuleA
-ModuleA的Mediator分类
+pod "MediatorCategoryModuleA"
