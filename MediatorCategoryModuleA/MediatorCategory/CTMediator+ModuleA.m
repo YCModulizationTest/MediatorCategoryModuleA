@@ -10,6 +10,7 @@
 
 // #define Target_ModuleA @"ModuleABusiness"
 NSString * const kTarget_ModuleA = @"ModuleABusiness";
+NSString * const kModuleAViewControllerWithParams = @"moduleAViewControllerWithParams";
 
 
 @implementation CTMediator (ModuleA)
@@ -19,7 +20,12 @@ NSString * const kTarget_ModuleA = @"ModuleABusiness";
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     param[@"title"] = title;
     param[@"bgColor"] = bgColor;
-    UIViewController *vc = [self performTarget:kTarget_ModuleA action:@"moduleAViewControllerWithTitle:backgroundColor:" params:param shouldCacheTarget:NO];
+    /*
+     根据组件里的Target-Action传值：
+     target：@interface Target_ModuleABusiness : NSObject →→→就传 @"ModuleABusiness"
+     action：- (UIViewController *)Action_moduleAViewControllerWithParams:(NSDictionary*)params; →→→就传 @"moduleAViewControllerWithParams"
+     */
+    UIViewController *vc = [self performTarget:kTarget_ModuleA action:kModuleAViewControllerWithParams params:param shouldCacheTarget:NO];
     if ([vc isKindOfClass:[UIViewController class]]) {
         return vc;
     }else {
